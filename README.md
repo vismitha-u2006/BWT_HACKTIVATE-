@@ -1,5 +1,6 @@
 # BWT_HACKTIVATE-
 Climate Tech Engines
+
 Solution Overview:
 The goal of this system is to build an AI-powered monitoring platform that makes invisible energy
 consumption visible and converts those insights into real reductions in cost and carbon emissions.
@@ -14,23 +15,23 @@ real-time monitoring, behavioral learning, anomaly detection, and predictive for
 5. Cloud Database: Stores historical usage data.
 6. Web Dashboard: Displays real-time insights, alerts, and efficiency score.
  Core Features:
-1. Real-Time Power Monitoring with live graph visualization.
-2. Behavioral Pattern Learning to identify peak hours and usage habits.
-3. AI-Based Anomaly Detection to detect unusual spikes.
-4. Predictive Consumption Forecasting for future usage estimation.
-5. Phantom Load Detection to identify standby power consumption.
-6. Energy Efficiency Score to gamify sustainable behavior.
+ Real-Time Power Monitoring with live graph visualization,
+ Behavioral Pattern Learning to identify peak hours and usage habit,
+ AI-Based Anomaly Detection to detect unusual spikes,
+ Predictive Consumption Forecasting for future usage estimation,
+ Phantom Load Detection to identify standby power consumption,
+ Energy Efficiency Score to gamify sustainable behavior.
  Distraction Guardian:
 The Distraction Guardian is an intelligent feature that detects extended device usage beyond
 normal behavioral patterns. For example, if an AC remains ON longer than usual, the system
 generates a smart alert suggesting action. It combines time-based inactivity detection, behavioral learning, and anomaly detection to prevent energy waste caused by human oversight
  Extended Capabilities (Future Scope):
-1. Smart auto-control using smart plugs and relays.
-2. Solar energy integration and load balancing.
-3. AI-powered personalized energy-saving recommendations.
-4. Community-level analytics and sustainability leaderboards.
-5. Carbon credit tracking and ESG integration.
-6. Mobile app with real-time push notifications.
-7.Advanced machine learning models like LSTM for time-series forecasting
+ Smart auto-control using smart plugs and relays,
+ Solar energy integration and load balancing,
+ AI-powered personalized energy-saving recommendations,
+ Community-level analytics and sustainability leaderboards,
+ Carbon credit tracking and ESG integration,
+ Mobile app with real-time push notifications,
+Advanced machine learning models like LSTM for time-series forecasting.
 
 
