@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Energy AI Monitoring System</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="./styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="icon">🏠</span>
+      <h1>Smart Energy AI Monitoring System</h1>
+    </div>
+    <div class="status">
+      <div class="chip">
+        <span>Current Power Usage</span>
+        <strong id="currentPower">0 W</strong>
+      </div>
+      <div class="chip">
+        <span>CO2 Emissions</span>
+        <strong id="co2Emissions">0 kg CO₂</strong>
+      </div>
+      <div class="chip">
+        <span>Energy Efficiency Score</span>
+        <strong id="effScore">0</strong>
+      </div>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="card span-2" id="realtime">
+      <div class="card-header">
+        <h2>Real-Time Power Usage</h2>
+        <div class="alert" id="realtimeAlert">Spike Detected</div>
+      </div>
+      <canvas id="realtimeChart" height="120"></canvas>
+      <div class="devices">
+        <div class="device">Fridge</div>
+        <div class="device">AC</div>
+        <div class="device">Fan</div>
+        <div class="device">TV</div>
+        <div class="device">Idle Load</div>
+      </div>
+    </section>
+
+    <section class="card" id="patterns">
+      <div class="card-header">
+        <h2>Behavioral Insights</h2>
+        <span class="sub">Usage Patterns</span>
+      </div>
+      <canvas id="patternsChart" height="120"></canvas>
+    </section>
+
+    <section class="card" id="forecast">
+      <div class="card-header">
+        <h2>Consumption Forecast</h2>
+        <span class="sub">Tomorrow's Prediction</span>
+      </div>
+      <div class="estimate">
+        <span>Estimated Usage</span>
+        <strong id="forecastKwh">0 kWh</strong>
+      </div>
+      <canvas id="forecastChart" height="120"></canvas>
+    </section>
+
+    <section class="card" id="anomaly">
+      <div class="card-header">
+        <h2>Anomaly Detection</h2>
+      </div>
+      <div class="banner danger" id="anomalyBanner">Alert: Unusual Spike in Usage</div>
+      <div class="progress">
+        <div class="progress-bar" id="investigateProgress"></div>
+      </div>
+      <div class="investigating">Investigating…</div>
+    </section>
+
+    <section class="card" id="phantom">
+      <div class="card-header">
+        <h2>Phantom Loads & Idle Devices</h2>
+        <div class="tag danger" id="standbyCount">Standby Devices Found: 0</div>
+      </div>
+      <ul class="list" id="phantomList"></ul>
+    </section>
+
+    <section class="card" id="carbon">
+      <div class="card-header">
+        <h2>Carbon Footprint</h2>
+      </div>
+      <div class="footprint">
+        <div class="gauge">
+          <canvas id="co2Gauge" width="220" height="220"></canvas>
+          <div class="gauge-center">
+            <div class="gauge-value" id="co2Daily">0 kg</div>
+            <div class="gauge-label">Daily CO₂</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="efficiency">
+      <div class="card-header">
+        <h2>Energy Efficiency Score</h2>
+      </div>
+      <div class="score">
+        <canvas id="effGauge" width="420" height="180"></canvas>
+        <div class="score-label" id="effLabel">Great</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
