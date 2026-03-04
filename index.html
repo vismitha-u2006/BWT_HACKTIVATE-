@@ -30,6 +30,14 @@
 
         <div id="ribbon" class="ribbon hide"><span id="ribbonText"></span></div>
 
+        <div class="loc">
+          <button id="locBtn" class="primary">Use My Location</button>
+          <input id="cityInput" placeholder="or enter city" aria-label="City">
+          <button id="cityBtn">Go</button>
+          <div id="locStatus" class="loc-status">Location: unknown</div>
+          <div id="tempStatus" class="loc-status">Temp: —</div>
+        </div>
+
         <div class="chart usage-chart">
           <canvas id="usageCanvas" width="600" height="210"></canvas>
           <div class="axis y"><span>5.0 w</span><span>3.0 w</span><span>0</span></div>
@@ -149,6 +157,16 @@
         </div>
       </section>
     </main>
+  </div>
+
+  <div id="centerAlert" class="center-alert hidden">
+    <div class="alert-box">
+      <div class="alert-title" id="alertTitle">Alarm Alert</div>
+      <div class="alert-msg" id="alertMsg"></div>
+      <div class="alert-actions">
+        <button id="alertClose" class="primary">OK</button>
+      </div>
+    </div>
   </div>
 
   <script src="app.js"></script>
