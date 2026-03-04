@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Smart Energy AI Monitoring System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="styles.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="tb-left"><div class="icon home"></div></div>
+      <div class="tb-center">Smart Energy AI Monitoring System</div>
+      <div class="tb-right"><div class="icon menu"></div><div class="icon bell"></div></div>
+    </header>
+
+    <div class="chips">
+      <div class="chip green">Current Power Usage: <b id="currentPower">820 W</b></div>
+      <div class="chip teal">CO2 Emissions: <b id="co2">3.2 kg CO2</b></div>
+      <div class="chip gold">Energy Efficiency Score: <b id="ees">78</b></div>
+    </div>
+
+    <main class="grid">
+      <section class="card usage">
+        <div class="card-head">
+          <h3>Real-Time Power Usage</h3>
+          <div id="banner" class="badge hide"></div>
+        </div>
+
+        <div id="ribbon" class="ribbon hide"><span id="ribbonText"></span></div>
+
+        <div class="chart usage-chart">
+          <canvas id="usageCanvas" width="600" height="210"></canvas>
+          <div class="axis y"><span>5.0 w</span><span>3.0 w</span><span>0</span></div>
+          <div class="axis x"><span>0:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span></div>
+        </div>
+
+        <div class="advice" id="advice"></div>
+
+        <input id="dev-fridge" class="dev-radio" type="radio" name="dev" checked>
+        <input id="dev-ac" class="dev-radio" type="radio" name="dev">
+        <input id="dev-fan" class="dev-radio" type="radio" name="dev">
+        <input id="dev-tv" class="dev-radio" type="radio" name="dev">
+        <input id="dev-idle" class="dev-radio" type="radio" name="dev">
+
+        <ul class="devices">
+          <li><label class="dev-btn" for="dev-fridge"><div class="d-ico"></div><span>Fridge</span></label></li>
+          <li><label class="dev-btn" for="dev-ac"><div class="d-ico"></div><span>AC</span></label></li>
+          <li><label class="dev-btn" for="dev-fan"><div class="d-ico"></div><span>Fan</span></label></li>
+          <li><label class="dev-btn" for="dev-tv"><div class="d-ico"></div><span>TV</span></label></li>
+          <li><label class="dev-btn" for="dev-idle"><div class="d-ico"></div><span>Idle Load</span></label></li>
+        </ul>
+      </section>
+
+      <section class="card insights">
+        <div class="card-head"><h3>Behavioral Insights</h3></div>
+        <div class="subhead">Usage Patterns</div>
+        <div class="bars">
+          <div class="bar" style="--v:.55"><span>Mon</span></div>
+          <div class="bar" style="--v:.62"><span>Tue</span></div>
+          <div class="bar" style="--v:.45"><span>Wed</span></div>
+          <div class="bar" style="--v:.78"><span>Thu</span></div>
+          <div class="bar hot" style="--v:.95"><span>Fri</span></div>
+          <div class="bar" style="--v:.38"><span>Sat</span></div>
+          <div class="bar" style="--v:.58"><span>Sun</span></div>
+        </div>
+      </section>
+
+      <section class="card forecast">
+        <div class="card-head"><h3>Consumption Forecast</h3></div>
+        <div class="subhead">Tomorrow's Prediction</div>
+        <div class="big-stat">Estimated Usage: <b>7.8 kwh</b></div>
+        <div class="chart forecast-chart">
+          <svg viewBox="0 0 420 160" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="fc" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="rgba(145,197,255,.45)"/>
+                <stop offset="100%" stop-color="rgba(145,197,255,0)"/>
+              </linearGradient>
+            </defs>
+            <polyline class="gridline" points="0,120 430,120"/>
+            <polyline class="gridline" points="0,80 430,80"/>
+            <path d="M10,120 L60,100 L110,110 L160,90 L210,95 L260,85 L310,105 L360,95 L410,70" fill="none" stroke="#9fd1ff" stroke-width="3"/>
+            <path d="M10,120 L60,100 L110,110 L160,90 L210,95 L260,85 L310,105 L360,95 L410,70 L410,160 L10,160 Z" fill="url(#fc)" stroke="none"/>
+          </svg>
+        </div>
+      </section>
+
+      <section class="card anomaly">
+        <div class="card-head"><h3>Anomaly Detection</h3></div>
+        <div class="ribbon danger"><span>Alert: Unusual Spike in Usage!</span></div>
+        <div class="status-row"><div class="dot"></div><div class="txt">Investigating...</div></div>
+        <div class="wide-illu"></div>
+      </section>
+
+      <section class="card phantom">
+        <div class="card-head"><h3>Phantom Loads & Idle Devices</h3></div>
+        <div class="ribbon danger small"><span>Standby Devices Found: 3</span></div>
+        <ul class="list">
+          <li><span class="lft">Idle TV: 12W</span><span class="ok"></span></li>
+          <li><span class="lft">Dormant Charger: 5W</span><span class="ok"></span></li>
+          <li><span class="lft">Unused Lamp: 4W</span><span class="ok"></span></li>
+        </ul>
+      </section>
+
+      <section class="card footprint">
+        <div class="card-head"><h3>Carbon Footprint</h3></div>
+        <div class="big-stat">Daily CO2 Emission: <b>3.2 kg</b></div>
+        <div class="scene">
+          <div class="ground"></div>
+          <div class="tree t1"></div>
+          <div class="tree t2"></div>
+          <div class="factory"></div>
+          <div class="stack s1"></div>
+          <div class="stack s2"></div>
+          <div class="cloud c1"></div>
+          <div class="cloud c2"></div>
+        </div>
+      </section>
+
+      <section class="card efficiency">
+        <div class="gauge">
+          <svg viewBox="0 0 300 190">
+            <defs>
+              <linearGradient id="arc" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0%" stop-color="#e34d4d"/>
+                <stop offset="40%" stop-color="#ffd24d"/>
+                <stop offset="100%" stop-color="#31d158"/>
+              </linearGradient>
+            </defs>
+            <path d="M30,160 A120,120 0 0 1 270,160" fill="none" stroke="url(#arc)" stroke-width="22" stroke-linecap="round"/>
+            <circle cx="150" cy="160" r="6" fill="#1a2334"/>
+            <text x="150" y="110" text-anchor="middle" fill="#ffffff" font-size="56" font-weight="800">78</text>
+            <rect x="110" y="130" width="80" height="28" rx="14" fill="#2dbb66"/>
+            <text x="150" y="149" text-anchor="middle" fill="#0a151f" font-size="16" font-weight="700">Great!</text>
+          </svg>
+        </div>
+      </section>
+
+      <section class="card mini-eff">
+        <div class="card-head"><h3>Energy Efficiency Score</h3></div>
+        <div class="mini-bars">
+          <div style="--v:.25"></div>
+          <div style="--v:.55"></div>
+          <div style="--v:.38"></div>
+          <div style="--v:.62"></div>
+          <div style="--v:.8"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
